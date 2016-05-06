@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="FFHMainViewController" customModule="FiziksFunhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zhg-yR-TvY"/>
+                        <viewControllerLayoutGuide type="bottom" id="32h-gw-HZu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BgD-zh-qHD">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-6T-2c8">
+                                <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
+                                <connections>
+                                    <segue destination="L4r-Y3-XEn" kind="embed" identifier="embedControls" id="kPp-jn-LWA"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-jf-ytX">
+                                <rect key="frame" x="332" y="0.0" width="1588" height="1080"/>
+                                <connections>
+                                    <segue destination="Jcx-cD-f4e" kind="embed" identifier="embedScene" id="Gy2-Qb-eSc"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="599"/>
+        </scene>
+        <!--Scene View Controller-->
+        <scene sceneID="0ut-kw-7V4">
+            <objects>
+                <viewController id="Jcx-cD-f4e" customClass="FFHSceneViewController" customModule="FiziksFunhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WLS-2W-4eD"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Qy-ii-xr0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tyc-mM-Liz">
+                        <rect key="frame" x="0.0" y="0.0" width="1588" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-V9-H1a" userLabel="sceneView" customClass="SCNView">
+                                <rect key="frame" x="0.0" y="0.0" width="1624" height="1080"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="ffl-V9-H1a" id="yQp-lX-n5c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MvO-Vk-O5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2975" y="599"/>
+        </scene>
+        <!--Controls View Controller-->
+        <scene sceneID="dJ7-C5-dD6">
+            <objects>
+                <viewController id="L4r-Y3-XEn" customClass="FFHControlsViewController" customModule="FiziksFunhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gbI-zE-XkR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nyb-Rh-Xla"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mh5-Hq-dhq">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Ball:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-y3-fNG">
+                                <rect key="frame" x="46" y="20" width="237" height="83"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="teI-2D-lAV" userLabel="ballTypesTableView">
+                                <rect key="frame" x="46" y="111" width="240" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L4r-Y3-XEn" id="gJC-no-dxB"/>
+                                    <outlet property="delegate" destination="L4r-Y3-XEn" id="agf-vC-wre"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-1B-WFt" userLabel="clearButton">
+                                <rect key="frame" x="82" y="507" width="170" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="L4r-Y3-XEn" eventType="primaryActionTriggered" id="qBN-oo-VHk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="ballTypesTableView" destination="teI-2D-lAV" id="kDa-la-axh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMf-cO-bX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="1831"/>
+        </scene>
+    </scenes>
+</document>

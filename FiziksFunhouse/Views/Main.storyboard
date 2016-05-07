@@ -23,7 +23,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-jf-ytX">
-                                <rect key="frame" x="332" y="0.0" width="1588" height="1080"/>
+                                <rect key="frame" x="334" y="0.0" width="1586" height="1080"/>
                                 <connections>
                                     <segue destination="Jcx-cD-f4e" kind="embed" identifier="embedScene" id="Gy2-Qb-eSc"/>
                                 </connections>
@@ -45,7 +45,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3Qy-ii-xr0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tyc-mM-Liz">
-                        <rect key="frame" x="0.0" y="0.0" width="1588" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1586" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-V9-H1a" userLabel="sceneView" customClass="SCNView">
@@ -75,13 +75,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Ball:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-y3-fNG">
-                                <rect key="frame" x="46" y="20" width="237" height="83"/>
+                                <rect key="frame" x="62" y="51" width="199" height="66"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="teI-2D-lAV" userLabel="ballTypesTableView">
-                                <rect key="frame" x="46" y="111" width="240" height="320"/>
+                                <rect key="frame" x="62" y="129" width="210" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
@@ -90,7 +90,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-1B-WFt" userLabel="clearButton">
-                                <rect key="frame" x="82" y="507" width="170" height="86"/>
+                                <rect key="frame" x="82" y="473" width="170" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>

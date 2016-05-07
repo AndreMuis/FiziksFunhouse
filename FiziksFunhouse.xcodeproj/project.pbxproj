@@ -10,12 +10,12 @@
 		2A2E094D1CDA928200B45662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E094C1CDA928200B45662 /* AppDelegate.swift */; };
 		2A2E09521CDA929E00B45662 /* FFHSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E09501CDA929E00B45662 /* FFHSceneViewController.swift */; };
 		2A2E09531CDA929E00B45662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E09511CDA929E00B45662 /* Main.storyboard */; };
-		2A2E09551CDA92A500B45662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E09541CDA92A500B45662 /* Assets.xcassets */; };
 		2A2E09581CDA93C500B45662 /* FFHControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E09571CDA93C500B45662 /* FFHControlsViewController.swift */; };
 		2A2E095A1CDA94FB00B45662 /* FFHSimulationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E09591CDA94FB00B45662 /* FFHSimulationEngine.swift */; };
 		2A2E095C1CDA996C00B45662 /* FFHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E095B1CDA996C00B45662 /* FFHMainViewController.swift */; };
 		2A2E095E1CDA9D0700B45662 /* FFHEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E095D1CDA9D0700B45662 /* FFHEnumerations.swift */; };
 		2A2E09601CDAA2DF00B45662 /* FFHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E095F1CDAA2DF00B45662 /* FFHConstants.swift */; };
+		2A8163B41CDCF7A3003A30B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A8163B31CDCF7A3003A30B8 /* Assets.xcassets */; };
 		2ACE95641CDBFA7100E035E4 /* FFHBallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE95631CDBFA7100E035E4 /* FFHBallNode.swift */; };
 		2ADA22C51CDBEE6D0092A91C /* Float+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA22C41CDBEE6D0092A91C /* Float+Random.swift */; };
 		2ADA22C91CDBF03A0092A91C /* SCNVector3+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA22C81CDBF03A0092A91C /* SCNVector3+Orientation.swift */; };
@@ -26,12 +26,12 @@
 		2A2E094E1CDA928A00B45662 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
 		2A2E09501CDA929E00B45662 /* FFHSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHSceneViewController.swift; path = Views/FFHSceneViewController.swift; sourceTree = "<group>"; };
 		2A2E09511CDA929E00B45662 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
-		2A2E09541CDA92A500B45662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets/Assets.xcassets; sourceTree = "<group>"; };
 		2A2E09571CDA93C500B45662 /* FFHControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHControlsViewController.swift; path = Views/FFHControlsViewController.swift; sourceTree = "<group>"; };
 		2A2E09591CDA94FB00B45662 /* FFHSimulationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHSimulationEngine.swift; path = Library/FFHSimulationEngine.swift; sourceTree = "<group>"; };
 		2A2E095B1CDA996C00B45662 /* FFHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHMainViewController.swift; path = Views/FFHMainViewController.swift; sourceTree = "<group>"; };
 		2A2E095D1CDA9D0700B45662 /* FFHEnumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHEnumerations.swift; path = Library/FFHEnumerations.swift; sourceTree = "<group>"; };
 		2A2E095F1CDAA2DF00B45662 /* FFHConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHConstants.swift; path = Library/FFHConstants.swift; sourceTree = "<group>"; };
+		2A8163B31CDCF7A3003A30B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets/Assets.xcassets; sourceTree = "<group>"; };
 		2AB7DDEC1CD7D24900399163 /* FiziksFunhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiziksFunhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACE95631CDBFA7100E035E4 /* FFHBallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFHBallNode.swift; path = Model/FFHBallNode.swift; sourceTree = "<group>"; };
 		2ADA22C31CDBC8D90092A91C /* ScratchPad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ScratchPad.playground; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		2A2E094B1CDA91F100B45662 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2A2E09541CDA92A500B45662 /* Assets.xcassets */,
+				2A8163B31CDCF7A3003A30B8 /* Assets.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A2E09551CDA92A500B45662 /* Assets.xcassets in Resources */,
+				2A8163B41CDCF7A3003A30B8 /* Assets.xcassets in Resources */,
 				2A2E09531CDA929E00B45662 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndreMuis.FiziksFunhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -324,6 +325,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndreMuis.FiziksFunhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

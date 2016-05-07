@@ -19,7 +19,7 @@ class FFHSceneViewController: UIViewController
     {
         super.viewDidLoad()
 
-        self.sceneView.showsStatistics = true
+        // self.sceneView.showsStatistics = true
 
         if let simulationEngine = self.simulationEngine
         {

@@ -29,7 +29,7 @@ class FFHBallNode : SCNNode
         {
         case .Small:
             categoryBitMask = 2
-            radius = 0.5 * baseRadius
+            radius = 0.8 * baseRadius
             color = UIColor.greenColor()
             
         case .Medium:
@@ -39,7 +39,7 @@ class FFHBallNode : SCNNode
 
         case .Large:
             categoryBitMask = 2
-            radius = 1.5 * baseRadius
+            radius = 1.2 * baseRadius
             color = UIColor.redColor()
             
         case .Destroyer:

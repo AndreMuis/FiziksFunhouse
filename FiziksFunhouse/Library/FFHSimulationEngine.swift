@@ -34,7 +34,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         let omnidirectionalLightNode = SCNNode()
         omnidirectionalLightNode.light = SCNLight()
         omnidirectionalLightNode.light!.type = SCNLightTypeOmni
-        omnidirectionalLightNode.light!.color = UIColor.whiteColor()
+        omnidirectionalLightNode.light!.color = UIColor.init(white: 0.85, alpha: 1.0)
         omnidirectionalLightNode.position = Constants.omnidirectionalLightPosition
         
         self.scene.rootNode.addChildNode(omnidirectionalLightNode)
@@ -49,9 +49,6 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
 
     func drawRoom()
     {
-        let material : SCNMaterial = SCNMaterial()
-        material.diffuse.contents = UIColor.lightGrayColor()
-        
         let physicsBody : SCNPhysicsBody = SCNPhysicsBody(type: .Static, shape: nil)
         
         physicsBody.categoryBitMask = 1
@@ -65,13 +62,15 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         physicsBody.damping = 0.0
         physicsBody.angularDamping = 0.0
         
+        let floorMaterial : SCNMaterial = SCNMaterial()
+        floorMaterial.diffuse.contents = UIImage(named: "Wood")
 
         let floorGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomWidth),
                                             height: CGFloat(Constants.roomHeight),
                                             length: CGFloat(Constants.roomWallDepth),
                                             chamferRadius: 0.0)
         
-        floorGeometry.materials = [material]
+        floorGeometry.materials = [floorMaterial]
         
         let floorNode = SCNNode(geometry: floorGeometry)
         floorNode.position = SCNVector3(x: Constants.roomWidth / 2.0,
@@ -84,23 +83,44 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         self.scene.rootNode.addChildNode(floorNode)
         
         
-        let ceilingNode : SCNNode = floorNode.clone()
         
+        let ceilingMaterial : SCNMaterial = SCNMaterial()
+        ceilingMaterial.diffuse.contents = UIImage(named: "Plaster")
+        ceilingMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, 3.0, 3.0, 3.0)
+        ceilingMaterial.diffuse.wrapS = SCNWrapMode.Repeat
+        ceilingMaterial.diffuse.wrapT = SCNWrapMode.Repeat
+        
+        let ceilingGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomWidth),
+                                              height: CGFloat(Constants.roomHeight),
+                                              length: CGFloat(Constants.roomWallDepth),
+                                              chamferRadius: 0.0)
+
+        ceilingGeometry.materials = [ceilingMaterial]
+        
+        let ceilingNode : SCNNode = SCNNode(geometry: ceilingGeometry)
         ceilingNode.position = SCNVector3(x: Constants.roomWidth / 2.0,
                                           y: Constants.roomHeight + Constants.roomWallDepth / 2.0,
                                           z: Constants.roomDepth / 2.0)
         
+        ceilingNode.rotation = SCNVector4(1.0, 0.0, 0.0, M_PI / 2.0)
         ceilingNode.physicsBody = physicsBody.copy() as? SCNPhysicsBody
         
         self.scene.rootNode.addChildNode(ceilingNode)
         
+        
+        
+        let wallMaterial : SCNMaterial = SCNMaterial()
+        wallMaterial.diffuse.contents = UIImage(named: "Concrete")
+        wallMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, 2.0, 2.0, 2.0)
+        wallMaterial.diffuse.wrapS = SCNWrapMode.Repeat
+        wallMaterial.diffuse.wrapT = SCNWrapMode.Repeat
         
         let leftWallGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomDepth),
                                                height: CGFloat(Constants.roomHeight),
                                                length: CGFloat(Constants.roomWallDepth),
                                                chamferRadius: 0.0)
         
-        leftWallGeometry.materials = [material]
+        leftWallGeometry.materials = [wallMaterial]
         
         let leftWallNode = SCNNode(geometry: leftWallGeometry)
         leftWallNode.position = SCNVector3(x: -Constants.roomWallDepth / 2.0,
@@ -128,7 +148,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
                                                length: CGFloat(Constants.roomWallDepth),
                                                chamferRadius: 0.0)
         
-        backWallGeometry.materials = [material]
+        backWallGeometry.materials = [wallMaterial]
         
         let backWallNode = SCNNode(geometry: backWallGeometry)
         backWallNode.position = SCNVector3(x: Constants.roomWidth / 2.0,

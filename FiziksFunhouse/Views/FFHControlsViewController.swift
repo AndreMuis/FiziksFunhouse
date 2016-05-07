@@ -12,7 +12,7 @@ class FFHControlsViewController : UIViewController, UITableViewDataSource, UITab
 {
     @IBOutlet weak var ballTypesTableView: UITableView!
     
-    let BallTypeCellIdentifier : String = "BallTypeCellIdentifier"
+    let ballTypeCellIdentifier : String = "BallTypeCellIdentifier"
     
     var simulationEngine : FFHSimulationEngine?
 
@@ -20,9 +20,7 @@ class FFHControlsViewController : UIViewController, UITableViewDataSource, UITab
     {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        
-        self.ballTypesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.BallTypeCellIdentifier)
+        self.ballTypesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.ballTypeCellIdentifier)
     }
 
     // MARK: UITableViewDataSource
@@ -39,7 +37,7 @@ class FFHControlsViewController : UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell : UITableViewCell = self.ballTypesTableView.dequeueReusableCellWithIdentifier(BallTypeCellIdentifier, forIndexPath: indexPath)
+        let cell : UITableViewCell = self.ballTypesTableView.dequeueReusableCellWithIdentifier(self.ballTypeCellIdentifier, forIndexPath: indexPath)
         
         if let ballType : FFHBallType = FFHBallType.valueAtIndex(indexPath.row),
             label : UILabel = cell.textLabel
@@ -54,12 +52,10 @@ class FFHControlsViewController : UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if let simulationEngine = self.simulationEngine
+        if let simulationEngine = self.simulationEngine,
+            let ballType : FFHBallType = FFHBallType.valueAtIndex(indexPath.row)
         {
-            if let ballType : FFHBallType = FFHBallType.valueAtIndex(indexPath.row)
-            {
-                simulationEngine.addBall(type: ballType)
-            }
+            simulationEngine.addBall(type: ballType)
         }
     }
     

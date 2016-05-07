@@ -31,18 +31,22 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
 
     func addLights()
     {
-        let omnidirectionalLightNode = SCNNode()
-        omnidirectionalLightNode.light = SCNLight()
-        omnidirectionalLightNode.light!.type = SCNLightTypeOmni
-        omnidirectionalLightNode.light!.color = UIColor.init(white: 0.85, alpha: 1.0)
+        let omnidirectionalLight : SCNLight = SCNLight()
+        omnidirectionalLight.type = SCNLightTypeOmni
+        omnidirectionalLight.color = Constants.omnidirectionalLightColor
+        
+        let omnidirectionalLightNode : SCNNode = SCNNode()
+        omnidirectionalLightNode.light = omnidirectionalLight
         omnidirectionalLightNode.position = Constants.omnidirectionalLightPosition
         
         self.scene.rootNode.addChildNode(omnidirectionalLightNode)
         
+        let ambientLight : SCNLight = SCNLight()
+        ambientLight.type = SCNLightTypeAmbient
+        ambientLight.color = Constants.ambientLightColor
+
         let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLightTypeAmbient
-        ambientLightNode.light!.color = Constants.ambientLightColor
+        ambientLightNode.light = ambientLight
         
         self.scene.rootNode.addChildNode(ambientLightNode)
     }
@@ -51,9 +55,9 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
     {
         let physicsBody : SCNPhysicsBody = SCNPhysicsBody(type: .Static, shape: nil)
         
-        physicsBody.categoryBitMask = 1
-        physicsBody.contactTestBitMask = 7
-        physicsBody.collisionBitMask = 7
+        physicsBody.categoryBitMask = Constants.floorCategoryBitMask
+        physicsBody.contactTestBitMask = Constants.allCategoriesBitMask
+        physicsBody.collisionBitMask = Constants.allCategoriesBitMask
 
         physicsBody.restitution = 1.0
         
@@ -62,8 +66,13 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         physicsBody.damping = 0.0
         physicsBody.angularDamping = 0.0
         
+        // Floor
+        
         let floorMaterial : SCNMaterial = SCNMaterial()
-        floorMaterial.diffuse.contents = UIImage(named: "Wood")
+        floorMaterial.diffuse.contents = UIImage(named: Constants.floorTextureName)
+        floorMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, Constants.floorTextureScale, Constants.floorTextureScale, Constants.floorTextureScale)
+        floorMaterial.diffuse.wrapS = SCNWrapMode.Repeat
+        floorMaterial.diffuse.wrapT = SCNWrapMode.Repeat
 
         let floorGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomWidth),
                                             height: CGFloat(Constants.roomHeight),
@@ -82,11 +91,11 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         
         self.scene.rootNode.addChildNode(floorNode)
         
-        
+        // Ceiling
         
         let ceilingMaterial : SCNMaterial = SCNMaterial()
-        ceilingMaterial.diffuse.contents = UIImage(named: "Plaster")
-        ceilingMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, 3.0, 3.0, 3.0)
+        ceilingMaterial.diffuse.contents = UIImage(named: Constants.ceilingTextureName)
+        ceilingMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, Constants.ceilingTextureScale, Constants.ceilingTextureScale, Constants.ceilingTextureScale)
         ceilingMaterial.diffuse.wrapS = SCNWrapMode.Repeat
         ceilingMaterial.diffuse.wrapT = SCNWrapMode.Repeat
         
@@ -107,14 +116,16 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         
         self.scene.rootNode.addChildNode(ceilingNode)
         
-        
+        // Walls
         
         let wallMaterial : SCNMaterial = SCNMaterial()
-        wallMaterial.diffuse.contents = UIImage(named: "Concrete")
-        wallMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, 2.0, 2.0, 2.0)
+        wallMaterial.diffuse.contents = UIImage(named: Constants.wallTextureName)
+        wallMaterial.diffuse.contentsTransform = SCNMatrix4Scale(SCNMatrix4Identity, Constants.wallTextureScale, Constants.wallTextureScale, Constants.wallTextureScale)
         wallMaterial.diffuse.wrapS = SCNWrapMode.Repeat
         wallMaterial.diffuse.wrapT = SCNWrapMode.Repeat
         
+        // Left Wall
+
         let leftWallGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomDepth),
                                                height: CGFloat(Constants.roomHeight),
                                                length: CGFloat(Constants.roomWallDepth),
@@ -132,6 +143,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         
         self.scene.rootNode.addChildNode(leftWallNode)
         
+        // Right Wall
         
         let rightWallNode : SCNNode = leftWallNode.clone()
         rightWallNode.position = SCNVector3(x: Constants.roomWidth + Constants.roomWallDepth / 2.0,
@@ -142,6 +154,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         
         self.scene.rootNode.addChildNode(rightWallNode)
         
+        // Back Wall
         
         let backWallGeometry : SCNBox = SCNBox(width: CGFloat(Constants.roomWidth),
                                                height: CGFloat(Constants.roomHeight),
@@ -159,6 +172,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         
         self.scene.rootNode.addChildNode(backWallNode)
         
+        // Front Wall
         
         let transparentMaterial : SCNMaterial = SCNMaterial()
         transparentMaterial.transparency = 0.0
@@ -182,7 +196,7 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
     
     func addBall(type type : FFHBallType)
     {
-        let ballNode = FFHBallNode(type: type)
+        let ballNode : FFHBallNode = FFHBallNode(type: type)
         
         ballNode.position = SCNVector3(x: Constants.roomWidth / 2.0,
                                        y: Constants.roomHeight / 2.0,
@@ -211,12 +225,14 @@ class FFHSimulationEngine : NSObject, SCNPhysicsContactDelegate
         if let physicsBodyA = contact.nodeA.physicsBody,
             let physicsBodyB = contact.nodeB.physicsBody
         {
-            if physicsBodyA.categoryBitMask == 3 && (physicsBodyB.categoryBitMask == 2 || physicsBodyB.categoryBitMask == 3)
+            if physicsBodyA.categoryBitMask == Constants.ballDestroyerCategoryBitMask &&
+                (physicsBodyB.categoryBitMask == Constants.ballNormalCategoryBitMask || physicsBodyB.categoryBitMask == Constants.ballDestroyerCategoryBitMask)
             {
                 contact.nodeB.removeFromParentNode()
             }
             
-            if physicsBodyB.categoryBitMask == 3 && (physicsBodyA.categoryBitMask == 2 || physicsBodyA.categoryBitMask == 3)
+            if physicsBodyB.categoryBitMask == Constants.ballDestroyerCategoryBitMask &&
+                (physicsBodyA.categoryBitMask == Constants.ballNormalCategoryBitMask || physicsBodyA.categoryBitMask == Constants.ballDestroyerCategoryBitMask)
             {
                 contact.nodeA.removeFromParentNode()
             }

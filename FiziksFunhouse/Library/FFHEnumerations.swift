@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andre Muis. All rights reserved.
 //
 
+import UIKit
+
 enum FFHBallType : String
 {
     case Small = "Small"
@@ -23,6 +25,69 @@ enum FFHBallType : String
         }
     }
     
+    var categoryBitMask : Int
+    {
+        get
+        {
+            switch self
+            {
+            case .Small:
+                return Constants.ballNormalCategoryBitMask
+                
+            case .Medium:
+                return Constants.ballNormalCategoryBitMask
+                
+            case .Large:
+                return Constants.ballNormalCategoryBitMask
+                
+            case .Destroyer:
+                return Constants.ballDestroyerCategoryBitMask
+            }
+        }
+    }
+
+    var radius : CGFloat
+    {
+        get
+        {
+            switch self
+            {
+            case .Small:
+                return 0.8 * Constants.ballBaseRadius
+                
+            case .Medium:
+                return Constants.ballBaseRadius
+                
+            case .Large:
+                return 1.2 * Constants.ballBaseRadius
+                
+            case .Destroyer:
+                return Constants.ballBaseRadius
+            }
+        }
+    }
+    
+    var color : UIColor
+    {
+        get
+        {
+            switch self
+            {
+            case .Small:
+                return UIColor.greenColor()
+                
+            case .Medium:
+                return UIColor.blueColor()
+                
+            case .Large:
+                return UIColor.redColor()
+                
+            case .Destroyer:
+                return UIColor.yellowColor()
+            }
+        }
+    }
+
     static func contains(value value : FFHBallType) -> Bool
     {
         return FFHBallType.allValues.contains(value)

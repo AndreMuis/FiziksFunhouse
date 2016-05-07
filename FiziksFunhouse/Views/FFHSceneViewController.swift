@@ -19,13 +19,9 @@ class FFHSceneViewController: UIViewController
     {
         super.viewDidLoad()
 
-        // self.sceneView.showsStatistics = true
-
         if let simulationEngine = self.simulationEngine
         {
             self.sceneView.scene = simulationEngine.scene
-            
-            // simulationEngine.drawAxes()
             
             simulationEngine.addCamera()
             

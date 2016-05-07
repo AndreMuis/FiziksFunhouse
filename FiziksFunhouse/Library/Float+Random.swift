@@ -12,6 +12,6 @@ extension Float
 {
     static func randomFrom0to1() -> Float
     {
-        return (Float(arc4random()) / Float(UINT32_MAX))
+        return Float(arc4random()) / Float(UINT32_MAX)
     }
 }

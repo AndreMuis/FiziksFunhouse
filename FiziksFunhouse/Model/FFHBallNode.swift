@@ -19,51 +19,22 @@ class FFHBallNode : SCNNode
     {
         super.init()
         
-        let baseRadius : CGFloat = 1.0
-        
-        var categoryBitMask : Int
-        var radius : CGFloat
-        var color : UIColor
-        
-        switch type
-        {
-        case .Small:
-            categoryBitMask = 2
-            radius = 0.8 * baseRadius
-            color = UIColor.greenColor()
-            
-        case .Medium:
-            categoryBitMask = 2
-            radius = baseRadius
-            color = UIColor.blueColor()
-
-        case .Large:
-            categoryBitMask = 2
-            radius = 1.2 * baseRadius
-            color = UIColor.redColor()
-            
-        case .Destroyer:
-            categoryBitMask = 3
-            radius = baseRadius
-            color = UIColor.yellowColor()
-        }
-        
         let material : SCNMaterial = SCNMaterial()
-        material.diffuse.contents = color
+        material.diffuse.contents = type.color
         material.specular.contents = UIColor.whiteColor()
         
-        let geometry : SCNSphere = SCNSphere(radius: radius)
+        let geometry : SCNSphere = SCNSphere(radius: type.radius)
         geometry.materials = [material]
         
         self.geometry = geometry
         
         let physicsBody : SCNPhysicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
 
-        physicsBody.categoryBitMask = categoryBitMask
-        physicsBody.contactTestBitMask = 7
-        physicsBody.collisionBitMask = 7
+        physicsBody.categoryBitMask = type.categoryBitMask
+        physicsBody.contactTestBitMask = Constants.allCategoriesBitMask
+        physicsBody.collisionBitMask = Constants.allCategoriesBitMask
     
-        physicsBody.mass = pow(radius / baseRadius, 3.0)
+        physicsBody.mass = pow(type.radius / Constants.ballBaseRadius, 3.0)
         
         physicsBody.restitution = 1.0
         

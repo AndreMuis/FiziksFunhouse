@@ -16,13 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-6T-2c8">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-6T-2c8">
                                 <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="dwp-CR-xtS"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="L4r-Y3-XEn" kind="embed" identifier="embedControls" id="kPp-jn-LWA"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-jf-ytX">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-jf-ytX">
                                 <rect key="frame" x="334" y="0.0" width="1586" height="1080"/>
                                 <connections>
                                     <segue destination="Jcx-cD-f4e" kind="embed" identifier="embedScene" id="Gy2-Qb-eSc"/>
@@ -30,6 +33,16 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uJw-jf-ytX" secondAttribute="trailing" id="3Gf-Gq-mcL"/>
+                            <constraint firstItem="vEU-6T-2c8" firstAttribute="top" secondItem="zhg-yR-TvY" secondAttribute="bottom" id="5rU-eZ-jP5"/>
+                            <constraint firstItem="uJw-jf-ytX" firstAttribute="leading" secondItem="vEU-6T-2c8" secondAttribute="trailing" id="Bsy-4a-FNK"/>
+                            <constraint firstItem="uJw-jf-ytX" firstAttribute="top" secondItem="zhg-yR-TvY" secondAttribute="bottom" id="MiH-cO-7Cf"/>
+                            <constraint firstItem="vEU-6T-2c8" firstAttribute="leading" secondItem="BgD-zh-qHD" secondAttribute="leading" id="pR9-mv-Gmx"/>
+                            <constraint firstItem="uJw-jf-ytX" firstAttribute="leading" secondItem="vEU-6T-2c8" secondAttribute="trailing" id="pRT-nq-djS"/>
+                            <constraint firstItem="32h-gw-HZu" firstAttribute="top" secondItem="uJw-jf-ytX" secondAttribute="bottom" id="ulr-GL-W0a"/>
+                            <constraint firstItem="32h-gw-HZu" firstAttribute="top" secondItem="vEU-6T-2c8" secondAttribute="bottom" id="xEH-Q3-Q4p"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -74,23 +87,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Ball:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-y3-fNG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Ball:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-y3-fNG">
                                 <rect key="frame" x="62" y="51" width="199" height="66"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="hXn-8y-zcL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="teI-2D-lAV" userLabel="ballTypesTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="teI-2D-lAV" userLabel="ballTypesTableView">
                                 <rect key="frame" x="62" y="129" width="210" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="ReT-uR-GUS"/>
+                                    <constraint firstAttribute="height" constant="320" id="vNL-le-IRy"/>
+                                </constraints>
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="L4r-Y3-XEn" id="gJC-no-dxB"/>
                                     <outlet property="delegate" destination="L4r-Y3-XEn" id="agf-vC-wre"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-1B-WFt" userLabel="clearButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-1B-WFt" userLabel="clearButton">
                                 <rect key="frame" x="82" y="473" width="170" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="DFa-hc-mIA"/>
+                                    <constraint firstAttribute="height" constant="86" id="tFw-3C-Na6"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
@@ -98,6 +128,15 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="80N-y3-fNG" secondAttribute="trailing" constant="73" id="01E-Bd-of1"/>
+                            <constraint firstItem="80N-y3-fNG" firstAttribute="leading" secondItem="Mh5-Hq-dhq" secondAttribute="leading" constant="62" id="4tk-Wu-rR8"/>
+                            <constraint firstItem="teI-2D-lAV" firstAttribute="centerX" secondItem="Mh5-Hq-dhq" secondAttribute="centerX" id="KUM-WJ-Ayj"/>
+                            <constraint firstItem="SYa-1B-WFt" firstAttribute="centerX" secondItem="Mh5-Hq-dhq" secondAttribute="centerX" id="Yxo-yu-iO3"/>
+                            <constraint firstItem="teI-2D-lAV" firstAttribute="top" secondItem="80N-y3-fNG" secondAttribute="bottom" constant="12" id="gT7-eX-Afb"/>
+                            <constraint firstItem="SYa-1B-WFt" firstAttribute="top" secondItem="teI-2D-lAV" secondAttribute="bottom" constant="24" id="hpc-B1-TBg"/>
+                            <constraint firstItem="80N-y3-fNG" firstAttribute="top" secondItem="gbI-zE-XkR" secondAttribute="bottom" constant="51" id="mQh-yC-elj"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="ballTypesTableView" destination="teI-2D-lAV" id="kDa-la-axh"/>

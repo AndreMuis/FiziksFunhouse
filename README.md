@@ -5,4 +5,4 @@ Physics simulation written in Swift using SceneKit for tvOS.
 
 <br />
 
-![Fiziks Funhouse](OtherAssets/ScreenShot.png?raw=true)
+![Fiziks Funhouse](Artwork/ScreenShot.png?raw=true)

@@ -29,9 +29,7 @@ class FFHSceneViewController: UIViewController
             
             simulationEngine.drawRoom()
         }
-
     }
-    
 }
 
 

@@ -8,24 +8,22 @@
 
 import UIKit
 
-enum FFHBallType : String
+enum FFHBallType: String, CaseIterable
 {
     case Small = "Small"
     case Medium = "Medium"
     case Large = "Large"
     case Destroyer = "Destroyer"
     
-    private static let allValues = [Small, Medium, Large, Destroyer]
-
-    static var valueCount : Int
+    static var valueCount: Int
     {
         get
         {
-            return FFHBallType.allValues.count
+            return FFHBallType.allCases.count
         }
     }
     
-    var categoryBitMask : Int
+    var categoryBitMask: Int
     {
         get
         {
@@ -46,7 +44,7 @@ enum FFHBallType : String
         }
     }
 
-    var radius : CGFloat
+    var radius: CGFloat
     {
         get
         {
@@ -67,39 +65,39 @@ enum FFHBallType : String
         }
     }
     
-    var color : UIColor
+    var color: UIColor
     {
         get
         {
             switch self
             {
             case .Small:
-                return UIColor.greenColor()
+                return UIColor.green
                 
             case .Medium:
-                return UIColor.blueColor()
+                return UIColor.blue
                 
             case .Large:
-                return UIColor.redColor()
+                return UIColor.red
                 
             case .Destroyer:
-                return UIColor.yellowColor()
+                return UIColor.yellow
             }
         }
     }
 
-    static func contains(value value : FFHBallType) -> Bool
+    static func contains(value: FFHBallType) -> Bool
     {
-        return FFHBallType.allValues.contains(value)
+        return FFHBallType.allCases.contains(value)
     }
 
-    static func valueAtIndex(index : Int) -> FFHBallType?
+    static func valueAtIndex(index: Int) -> FFHBallType?
     {
-        let value : FFHBallType?
+        let value: FFHBallType?
         
-        if (FFHBallType.allValues.indices.contains(index) == true)
+        if (FFHBallType.allCases.indices.contains(index) == true)
         {
-            value = FFHBallType.allValues[index]
+            value = FFHBallType.allCases[index]
         }
         else
         {

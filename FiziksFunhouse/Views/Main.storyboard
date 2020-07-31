@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16097.2" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -17,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-6T-2c8">
-                                <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
+                                <rect key="frame" x="0.0" y="60" width="334" height="960"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="334" id="dwp-CR-xtS"/>
                                 </constraints>
@@ -26,13 +29,12 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-jf-ytX">
-                                <rect key="frame" x="334" y="0.0" width="1586" height="1080"/>
+                                <rect key="frame" x="334" y="60" width="1586" height="960"/>
                                 <connections>
                                     <segue destination="Jcx-cD-f4e" kind="embed" identifier="embedScene" id="Gy2-Qb-eSc"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uJw-jf-ytX" secondAttribute="trailing" id="3Gf-Gq-mcL"/>
                             <constraint firstItem="vEU-6T-2c8" firstAttribute="top" secondItem="zhg-yR-TvY" secondAttribute="bottom" id="5rU-eZ-jP5"/>
@@ -58,12 +60,13 @@
                         <viewControllerLayoutGuide type="bottom" id="3Qy-ii-xr0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tyc-mM-Liz">
-                        <rect key="frame" x="0.0" y="0.0" width="1586" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1586" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-V9-H1a" userLabel="sceneView" customClass="SCNView">
                                 <rect key="frame" x="0.0" y="0.0" width="1624" height="1080"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                     </view>
@@ -84,27 +87,27 @@
                         <viewControllerLayoutGuide type="bottom" id="Nyb-Rh-Xla"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mh5-Hq-dhq">
-                        <rect key="frame" x="0.0" y="0.0" width="334" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Ball:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-y3-fNG">
-                                <rect key="frame" x="62" y="51" width="199" height="66"/>
-                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="62" y="111" width="199" height="66"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="hXn-8y-zcL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="teI-2D-lAV" userLabel="ballTypesTableView">
-                                <rect key="frame" x="62" y="129" width="210" height="320"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="62" y="189" width="210" height="320"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="ReT-uR-GUS"/>
                                     <constraint firstAttribute="height" constant="320" id="vNL-le-IRy"/>
@@ -116,7 +119,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-1B-WFt" userLabel="clearButton">
-                                <rect key="frame" x="82" y="473" width="170" height="86"/>
+                                <rect key="frame" x="82" y="533" width="170" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="DFa-hc-mIA"/>
                                     <constraint firstAttribute="height" constant="86" id="tFw-3C-Na6"/>
@@ -124,7 +127,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
-                                    <action selector="clearButtonPressed:" destination="L4r-Y3-XEn" eventType="primaryActionTriggered" id="qBN-oo-VHk"/>
+                                    <action selector="clearButtonPressedWithSender:" destination="L4r-Y3-XEn" eventType="primaryActionTriggered" id="9dK-vJ-MUr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMf-cO-bX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="1831"/>
+            <point key="canvasLocation" x="969" y="1881"/>
         </scene>
     </scenes>
 </document>

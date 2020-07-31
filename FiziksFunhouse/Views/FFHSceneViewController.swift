@@ -13,22 +13,17 @@ class FFHSceneViewController: UIViewController
 {
     @IBOutlet weak var sceneView: SCNView!
     
-    var simulationEngine : FFHSimulationEngine?
+    var simulationEngine: FFHSimulationEngine?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        if let simulationEngine = self.simulationEngine
-        {
-            self.sceneView.scene = simulationEngine.scene
             
-            simulationEngine.addCamera()
+        self.sceneView.scene = self.simulationEngine?.scene
             
-            simulationEngine.addLights()
-            
-            simulationEngine.drawRoom()
-        }
+        self.simulationEngine?.addCamera()
+        self.simulationEngine?.addLights()
+        self.simulationEngine?.drawRoom()
     }
 }
 

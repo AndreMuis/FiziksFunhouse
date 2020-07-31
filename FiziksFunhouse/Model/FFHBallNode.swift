@@ -8,27 +8,27 @@
 
 import SceneKit
 
-class FFHBallNode : SCNNode
+class FFHBallNode: SCNNode
 {
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
     
-    init(type : FFHBallType)
+    init(type: FFHBallType)
     {
         super.init()
         
-        let material : SCNMaterial = SCNMaterial()
+        let material: SCNMaterial = SCNMaterial()
         material.diffuse.contents = type.color
-        material.specular.contents = UIColor.whiteColor()
+        material.specular.contents = UIColor.white
         
-        let geometry : SCNSphere = SCNSphere(radius: type.radius)
+        let geometry: SCNSphere = SCNSphere(radius: type.radius)
         geometry.materials = [material]
         
         self.geometry = geometry
         
-        let physicsBody : SCNPhysicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        let physicsBody: SCNPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
 
         physicsBody.categoryBitMask = type.categoryBitMask
         physicsBody.contactTestBitMask = Constants.allCategoriesBitMask

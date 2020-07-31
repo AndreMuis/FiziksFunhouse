@@ -8,54 +8,48 @@
 
 import UIKit
 
-class FFHControlsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate
+class FFHControlsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var ballTypesTableView: UITableView!
     
-    let ballTypeCellIdentifier : String = "BallTypeCellIdentifier"
-    
-    var simulationEngine : FFHSimulationEngine?
+    let ballTypeCellIdentifier: String = "BallTypeCellIdentifier"
+    var simulationEngine: FFHSimulationEngine?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.ballTypesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.ballTypeCellIdentifier)
+        self.ballTypesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.ballTypeCellIdentifier)
     }
 
     // MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 1;
+        return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int
     {
         return FFHBallType.valueCount
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell : UITableViewCell = self.ballTypesTableView.dequeueReusableCellWithIdentifier(self.ballTypeCellIdentifier, forIndexPath: indexPath)
+        let cell: UITableViewCell = self.ballTypesTableView.dequeueReusableCell(withIdentifier: self.ballTypeCellIdentifier, for: indexPath)
         
-        if let ballType : FFHBallType = FFHBallType.valueAtIndex(indexPath.row),
-            label : UILabel = cell.textLabel
-        {
-            label.text = ballType.rawValue
-        }
+        cell.textLabel?.text = FFHBallType.valueAtIndex(index: indexPath.row)?.rawValue
         
         return cell
     }
 
     // MARK: UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if let simulationEngine = self.simulationEngine,
-            let ballType : FFHBallType = FFHBallType.valueAtIndex(indexPath.row)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {            
+        if let ballType: FFHBallType = FFHBallType.valueAtIndex(index: indexPath.row)
         {
-            simulationEngine.addBall(type: ballType)
+            self.simulationEngine?.addBall(type: ballType)
         }
     }
     
@@ -63,10 +57,7 @@ class FFHControlsViewController : UIViewController, UITableViewDataSource, UITab
 
     @IBAction func clearButtonPressed(sender: AnyObject)
     {
-        if let simulationEngine = self.simulationEngine
-        {
-            simulationEngine.removeAllBalls()
-        }
+        self.simulationEngine?.removeAllBalls()
     }
 }
 
